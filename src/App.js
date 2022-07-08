@@ -10,7 +10,9 @@ const App = () => {
   // State hook - 'useState'
   const [newItem, setNewItem] = useState("");
   const [items, setItems] = useState([]);
-  const [colour, setColour] = useState(false);
+  
+
+
 
   // Functions
   const addItem = () => {
@@ -29,18 +31,10 @@ const App = () => {
     setNewItem("")
   }
 
+
 // Button which marks task as complete but doesn't delete it
-const compItem = (id) => {
-  setColour(current => !current);
-  return(
-    <div>
-      <p>Task complete</p>
-      style={{
-        backgroundColour: colour===true ? 'green' : '',
-        color: (colour === true) ? 'white' : ''
-      }}
-    </div>
-  )
+const compItem = (id, props) => {
+  props.setColour(!props.colour);
 }
 
 // Button which removes the item from the list
@@ -69,18 +63,7 @@ const deleteItem = (id) => {
         
         {items.map(item => {
           return(
-            <li className="listItem" key={item.id}>
-              {item.value}
-              
-              {/* style={{
-                backgroundColour: colour===true ? 'green' : '',
-                color: (colour === true) ? 'white' : ''
-              }} */}
-              
-              
-              <button className='comBtn' onClick={() => compItem(item.id)}>Complete ✔</button>
-              <button className='delBtn' onClick={() => deleteItem(item.id)}>Remove ❌</button>
-            </li>
+            <TaskItem />
           )
         })}
       </ul>
@@ -89,24 +72,21 @@ const deleteItem = (id) => {
 }
 
 
-// const ListItem = (props) => {
-//   const [toDo, setToDo] = useState(true)
-//   return(
-//       <div className="list-item" style={toDo ? {color:"black"} : {color:"green"}}>
-//           <h4>{props.task}</h4>
-//           <Buttons toDo={toDo} setToDo={setToDo} handleClick={props.handleClick}/>
-//       </div>
-//   )
-// }
+// Tasks Function
+const TaskItem = (props) => {
+  const [colour, setColour] = useState(false);
 
-// const Buttons = ({toDo, setToDo, handleClick}) => {
-//   return (
-//       <div>
-//           <button onClick={()=>{setToDo(!toDo)}}>To Do</button>
-//           <button onClick={handleClick}>Delete</button>
-//       </div>
-//   )
-// }
+  <li className="listItem" key={props.item.id}>
+    <p style={{
+      backgroundColor: colour===true ? 'green' : '',
+      color: colour === true ? 'white' : ''
+    }}>{props.item.value}</p>
+    
+    
+    <button className='comBtn' onClick={() => props.compItem(props.item.id)}>Complete ✔</button>
+    <button className='delBtn' onClick={() => props.deleteItem(props.item.id)}>Remove ❌</button>
+  </li>
+}
 
 
 
