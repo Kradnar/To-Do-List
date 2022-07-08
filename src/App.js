@@ -59,17 +59,18 @@ const deleteItem = (id) => {
 
       {/* Unordered list */}
       <ul>
-        
-        
-        {items.map(item => {
-          return(
-            <TaskItem />
-          )
+        {items.map((item, index) => {
+          return <TaskItem 
+          compItem={compItem}
+          deleteItem={deleteItem}
+          item={item}
+          key={index}
+          />;
         })}
       </ul>
     </div>
   );
-}
+};
 
 
 // Tasks Function
@@ -77,10 +78,14 @@ const TaskItem = (props) => {
   const [colour, setColour] = useState(false);
 
   <li className="listItem" key={props.item.id}>
-    <p style={{
-      backgroundColor: colour===true ? 'green' : '',
-      color: colour === true ? 'white' : ''
-    }}>{props.item.value}</p>
+    <p 
+      style={{
+        backgroundColor: colour===true ? 'green' : '',
+        color: colour === true ? 'white' : ''
+    }}
+    >
+    {props.item.value}
+    </p>
     
     
     <button className='comBtn' onClick={() => props.compItem(props.item.id)}>Complete ✔</button>
