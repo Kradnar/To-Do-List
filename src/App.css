@@ -1,5 +1,15 @@
+body {
+  background-color: black;
+}
+
 .App {
   text-align: center;
+  background-color: black;
+}
+
+#title {
+  background-color: darkorchid;
+  color: gold;
 }
 
 input {
@@ -13,6 +23,16 @@ ul {
 
 li {
   margin: 12px 0;
+}
+
+.listItem {
+  color: aliceblue;
+  background-color: slategrey;
+}
+
+.listItemComp {
+  color: aliceblue;
+  background-color: greenyellow;
 }
 
 .delBtn {
