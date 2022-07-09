@@ -1,15 +1,8 @@
 body {
   background-color: black;
-}
 
-.App {
-  text-align: center;
-  background-color: black;
-}
-
-#title {
-  background-color: darkorchid;
-  color: gold;
+  margin: 10px 15% 0px;
+  padding: 10px;
 }
 
 input {
@@ -19,11 +12,41 @@ input {
 
 ul {
   list-style: none;
+  box-sizing: border-box;
+  
+  border-width: 5px;
+  border-color: aliceblue;
+  padding-left: 0px;
 }
 
 li {
-  margin: 12px 0;
+  box-sizing: border-box;
+  border-style: outset;
+  border-width: 5px;
+  padding: 1px 0px 15px;
+  margin: 12px 50px;
 }
+
+.App {
+  text-align: center;
+  background-color: rgba(98, 38, 129, 0.605);
+  box-sizing: border-box;
+  border-style: double;
+  border-width: 5px;
+  border-color: silver;
+  padding: 10px;
+}
+
+#title {
+  background-color: darkorchid;
+  color: gold;
+  margin: 20px 25% 20px;
+  box-sizing: border-box;
+  border-style: ridge;
+  border-radius: 5px;
+  border-color: gold;
+}
+
 
 .listItem {
   color: aliceblue;
@@ -36,23 +59,17 @@ li {
 }
 
 .delBtn {
-  font-size: 15px;
-  margin-left: 8px;
   background-color: indianred;
-
-  border-radius: 4px;
-
-  padding-top: 4px;
-  padding-bottom: 4px;
 }
 
 .comBtn {
+  background-color: green;
+}
+
+#button {
   font-size: 15px;
   margin-left: 8px;
-  background-color: green;
-
   border-radius: 4px;
-
   padding-top: 4px;
   padding-bottom: 4px;
 }
