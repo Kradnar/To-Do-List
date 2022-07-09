@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import './App.css';
 
+import TaskItem from './components/TaskItem';
+
 const App = () => {
   // State hook - 'useState'
   const [newItem, setNewItem] = useState("");
@@ -31,7 +33,7 @@ const App = () => {
   return (
     <div className="App">
       {/* Title */}
-      <h1 id="title" >Pete's To Do List</h1>
+      <h1 id="title" >To Do List</h1>
       {/* Displays placeholder text in input box */}
       <input
         type="text"
@@ -53,26 +55,6 @@ const App = () => {
     </div>
   );
 };
-
-
-// Tasks Function
-const TaskItem = (props) => {
-  const [colour, setColour] = useState(false);
-  return (
-    <li className="listItem" key={props.item.id}>
-      <p 
-        style={{
-          backgroundColor: colour===true ? 'green' : '',
-          color: colour === true ? 'white' : ''
-      }}
-      >
-      {props.item.value}
-      </p>
-      <button id='button' className='comBtn' onClick={() => setColour(!colour)(props.item.id)}>Complete ✔</button>
-      <button id='button' className='delBtn' onClick={() => props.deleteItem(props.item.id)}>Remove ❌</button>
-    </li>
-  )
-}
 
 
 

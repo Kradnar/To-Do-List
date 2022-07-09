@@ -1,3 +1,0 @@
-const compItem = (id) => {
-
-}
